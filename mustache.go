@@ -437,10 +437,6 @@ func (tmpl *Template) parse() error {
 			}
 			tmpl.elems = append(tmpl.elems, partial)
 		case '=':
-			if tag[len(tag)-1] != '=' {
-				return newError(tmpl.curline, ErrInvalidMetaTag)
-			}
-			tag = strings.TrimSpace(tag[1 : len(tag)-1])
 			tmpl.parseCustomDelimiter(tag)
 		case '{':
 			//use a raw tag
